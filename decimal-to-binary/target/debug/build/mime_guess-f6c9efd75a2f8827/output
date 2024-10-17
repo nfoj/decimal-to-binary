@@ -1,1 +1,0 @@
-cargo:rustc-env=MIME_TYPES_GENERATED_PATH=/home/user/git/decimal-to-binary/decimal-to-binary/target/debug/build/mime_guess-f6c9efd75a2f8827/out/mime_types_generated.rs
