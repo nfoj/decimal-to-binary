@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão para Binário</title>
+</head>
+<body>
+    <h1>Converter Número para Binário</h1>
+    <form id="binaryForm">
+        <label for="number">Número:</label>
+        <input type="number" id="number" name="number" required>
+        <button type="submit">Converter</button>
+    </form>
+    <h2 id="result"></h2>
+
+    <script>
+        document.getElementById('binaryForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const number = document.getElementById('number').value;
+
+            const response = await fetch('/convert', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ number: parseInt(number) }),
+            });
+
+            const result = await response.text();
+            document.getElementById('result').innerText = `Resultado: ${result}`;
+        };
+    </script>
+</body>
+</html>
