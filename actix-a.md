@@ -55,3 +55,50 @@ curl -i http://127.0.0.1:8080/
           App::new()
     
 ```
+
+- .env: Environment variable
+
+    Obs: Dynamic values residing on your machine but outside your application. Sensitive data of your application!
+    Examples: API keys, access tokens, passwords, connections urls, environment settings. 
+
+```
+    //.env
+    USER=admin
+    PASS=admin
+
+    PORT=8080
+    DATABASE_URL="postgres:..."
+
+
+    // dotenv
+    [dependencies]
+    dotenv = "0.15.0"
+
+
+    //
+    use dotenv::dotenv;
+
+    // main
+    #[actix_web::main]
+    async fn main() -> std::io::Result<()> {
+      dotenv().ok(); 
+      let port = std::env::var("PORT").unwrap_or("8080".to_string()); 
+      let address = format!("127.0.0.1:{}", port);
+   
+      println!("Starting Server!"); // Start
+      HttpServer::new(|| {
+          App::new()
+              .service(hello)
+              .service(echo)
+              .route("/hey", web::get().to(manual_hello))
+      })
+      .bind(&address)? // add address 
+      .run()
+      .await
+  }
+
+
+
+          
+```
+
