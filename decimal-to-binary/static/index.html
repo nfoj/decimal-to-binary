@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <script src="js/index.js" defer></script>
+    <script src="https://kit.fontawesome.com/d09b0b05ac.js" crossorigin="anonymous"></script>
+    <title>FOJ</title>
     <title>Conversão para Binário</title>
 </head>
+
 <body>
     <h1>Converter Número para Binário</h1>
     <form id="binaryForm">
@@ -15,21 +23,8 @@
     <h2 id="result"></h2>
 
     <script>
-        document.getElementById('binaryForm').onsubmit = async (e) => {
-            e.preventDefault();
-            const number = document.getElementById('number').value;
 
-            const response = await fetch('/convert', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ number: parseInt(number) }),
-            });
-
-            const result = await response.text();
-            document.getElementById('result').innerText = `Resultado: ${result}`;
-        };
     </script>
 </body>
+
 </html>
