@@ -1,25 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+
 :root {
  --color-background: #111111;
  --color-ground: #EED49F;
+ --color-focus: #EED49F;
  --color-text: #FFFFFF;
 }
 
+
+/* Estilos globais */
 body {
+    margin: 0;
     background-color: var(--color-background);
+    font-family: "Source Sans 3", sans-serif; /* Fonte mais legível por padrão */
 }
 
-img {
-    margin: 2rem;
+header {
+    padding: 1rem 1.5rem;
 }
 
-h1 {
-    margin-top: 6em;
+/* Main container */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
     text-align: center;
+    max-height: 920px;
+    color: var(--color-text);
+}
+
+/* Título */
+h1 {
+    margin-bottom: 1.5rem;
+    font-family: "Oxygen Mono", serif;
+    font-size: 2.5rem;
+    font-weight: 400;
     color: var(--color-ground);
 }
 
+/* Parágrafo */
 p {
-    margin: 1.5em;
-    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1rem;
     color: var(--color-text);
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column; /* Flex column para organizar o título e o botão de submit em coluna */
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    gap: 1rem; /* Adicionando um espaço entre os campos */
+}
+
+/* Flexbox para os inputs lado a lado */
+.main-form {
+    display: flex;
+    gap: 3rem; /* Espaço entre os inputs */
+    justify-content: center; /* Alinha os inputs no centro */
+    flex-wrap: wrap; /* Permite que os inputs quebrem linha em telas pequenas */
+}
+
+/* Inputs de texto e número */
+input[type="number"], input[type="text"] {
+    height: 4em;
+    width: 100%; /* Garante que os inputs ocupem a largura disponível */
+    max-width: 20em; /* Limita a largura máxima de cada input */
+    border: 1px solid var(--color-border, #FFFFFF); /* Usar variável para a borda */
+    color: var(--color-text);
+    border-radius: 8px;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background-color: var(--color-background);
+}
+
+/* Foco dos inputs */
+input[type="number"]:focus, input[type="text"]:focus {
+    border-color: var(--color-focus); /* Cor ao focar nos campos */
+    color: var(--color-text);
+    outline: none;
+}
+
+/* Estilo do botão de submit */
+button[type="submit"] {
+    background-color: var(--color-ground);
+    color: var(--color-background);
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 1em;
+    font-size: 0.750rem;
+    height: 2.8rem;
+    width: 7rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #e53935;
+}
+
+input[type="submit"]:focus {
+    outline: 3px solid var(--color-focus);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    main {
+        padding: 1rem;
+    }
+
+    .main-form {
+        flex-direction: column; /* Coloca os inputs em coluna em telas pequenas */
+        justify-content: center;
+        align-items: center;
+        gap: 1rem; /* Diminui o espaçamento em telas menores */
+    }
+
+    input[type="number"], input[type="text"], input[type="submit"] {
+        width: 50%; /* Garante que os inputs ocupem toda a largura em telas pequenas */
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem; /* Ajusta o tamanho do título em telas pequenas */
+    }
 }
