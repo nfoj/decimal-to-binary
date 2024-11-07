@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -14,17 +14,33 @@
 </head>
 
 <body>
-    <h1>Converter Número para Binário</h1>
-    <form id="binaryForm">
-        <label for="number">Número:</label>
-        <input type="number" id="number" name="number" required>
+
+    <header>
+        <img src="img/logo.svg" alt="logo">
+    </header>
+
+    <main>
+
+        <h1>Calculadora Binária</h1>
+        <p>Conversor de números binários em decimais</p>
+
+        <form id="binaryForm">
+            <div class="main-form">
+                <div>
+                    <label for="number">Decimal</label>
+                    <input type="number" id="number" value="12" name="number" required><br><br>
+                </div>
+                <div>
+                    <label for="result">Binário</label>
+                    <input type="text" id="result" name="number" readonly><br><br>
+                </div>
+            </div>
+        </form>
+
         <button type="submit">Converter</button>
-    </form>
-    <h2 id="result"></h2>
+    </main>
 
-    <script>
 
-    </script>
 </body>
 
 </html>
